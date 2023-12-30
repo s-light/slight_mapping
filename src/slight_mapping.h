@@ -127,6 +127,13 @@ T1 map_range_clamped(T1 x, T1 in_min, T1 in_max, T1 out_min, T1 out_max) {
     return map_range(x, in_min, in_max, out_min, out_max);
 }
 
+template <class T1, class T2>
+T2 map_range_clamped(T1 x, T1 in_min, T1 in_max, T2 out_min, T2 out_max) {
+    // x = std::clamp(x, in_min, in_max);  // C++17
+    x = clamp(x, in_min, in_max);
+    return map_range(x, in_min, in_max, out_min, out_max);
+}
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // map_range_01_to
 
